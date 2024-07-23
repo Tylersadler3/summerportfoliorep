@@ -7,8 +7,104 @@
     <link rel="stylesheet" href = "style.css">
 </head>
 <body>
-<div id="header">
-    
-</div>
+
+    <!-------- HEADER SECTION ---------->
+    <div id="header">
+        <div class="container">
+             <nav>
+                 <img src="images/logo-removebg-preview.png" class="logo" alt="THGP Logo">
+                 <ul>
+                     <li><a href="#about">About</a></li>
+                     <li><a href="#services">Services</a></li>
+                     <li><a href="#portfolio">Portfolio</a></li>
+                     <li><a href="#contact">Contact</a></li>
+                 </ul>
+             </nav>
+             <div class="header-text">
+                 <p>Role</p>
+                 <h1>Hello, I'm <span>Tyler</span><br>from [], CA!</h1>
+             </div>
+        </div> 
+     </div>
+ <!-------- HEADER SECTION END ---------->
+
+ <!-------- ABOUT SECTION ---------->
+     <div id="about">
+         <div class="container">
+             <div class="row">
+                 <div class="about-col-1">
+                     <img src="images/imageimage.jpeg" alt ="Headshot of me">
+                 </div>
+                 <div class="about-col-2">
+                     <h1 class="sub-title">About Me</h1> 
+                     <p>
+                         This paragraph should tell everyone all about you!
+                     </p> 
+                     <div class="tab-titles">
+                         <p class="tab-links active-link" onclick="OpenTab('skills')">Skills</p>
+                         <p class="tab-links" onclick="OpenTab('exp')">Experience</p>
+                         <p class="tab-links" onclick="OpenTab('edu')">Education</p>
+                     </div>
+                     <!--------SKILLS---------->
+                     <div class="tab-contents active-tab" id="skills">
+                         <ul>
+                             <li><span>Skill 1</span><br>Description</li>
+                             <li><span>Skill 2</span><br>Description</li>
+                             <li><span>Skill 3</span><br>Description</li>
+                         </ul>
+                     </div>
+                     <!--------EXPERIENCE---------->
+                     <div class="tab-contents" id="exp">
+                         <ul>
+                             <li><span>XP 1</span><br>THGP</li>
+                             <li><span>XP 2</span><br>Roots</li>
+                             <li><span>XP 3</span><br>ATDP</li>
+                         </ul>
+                     </div>
+                     <!--------EDUCATION---------->
+                     <div class="tab-contents" id="edu">
+                         <ul>
+                             <li><span>EDU 1</span><br>Skyline High Graduate</li>
+                             <li><span>EDU 2</span><br>UCSC</li>
+                         </ul>
+                     </div>
+                 </div>
+                 
+             </div>
+         </div>
+     </div>
+ <!-------- ABOUT SECTION END ---------->
+
+ <!-------- SCRIPT SECTION ---------->
+<script>
+    /* Variable - A name and a type of a stored value */
+    /* A variable called tablinks that holds the tags with class 'tab-links' this variable holds 3 total elements */
+    var tabLinks = document.getElementsByClassName("tab-links");
+    /* A variable called tabContent that holds the tags with class 'tab-contents' */
+    var tabContents = document.getElementsByClassName("tab-contents");
+    /* A function called 'OpenTab' with the parameter 'tabName' */
+    function OpenTab(tabName) 
+    {
+        /* For each tab link in the variable 'tab-links' (there are 3 of them)*/
+        for (tabLink of tabLinks) 
+        {
+            /remove the class 'active-link' from that tag/
+            tabLink.classList.remove("active-link");
+        }  
+        /* For each tab link in the variable 'tab-links' (there are 3 of them)*/
+        for (tabContent of tabContents) 
+        {
+            /remove the class 'active-tab' from that tag/
+            tabContent.classList.remove("active-tab");
+        }  
+        /*Take the selected tag title, and add the 'active-link' 
+        class to it to make its contents appear on the page*/
+        event.currentTarget.classList.add("active-link");
+        /* Select the tag with the id = the tab name, and add the 'active-tab' class to it; 
+        this will make the tab contents appear for the selected section*/
+        document.getElementById(tabName).classList.add("active-tab");
+    }
+</script>
 </body>
+
 </html>
