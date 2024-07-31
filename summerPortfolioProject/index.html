@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tylers Professional Portfolio</title>
     <link rel="stylesheet" href = "style.css">
+    <script src="https://kit.fontawesome.com/f8ee47b5ef.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -48,7 +49,7 @@
                      <!--------SKILLS---------->
                      <div class="tab-contents active-tab" id="skills">
                          <ul>
-                             <li><span>Sports</span><br>As I mentioned in the About me section I play three sports and I am planning to play baseball in the spring my main hobby is sports because I am playing at least one sport year around</li>
+                             <li><span>Sports</span><br>I play three sports and I am planning to play baseball in the spring my main hobby is sports because I am playing at least one sport year around</li>
                              <li><span>Public speaking</span><br>One skill i feel i have is public speaking. I do not experience social anxiety when speaking in front of big crowds and I am not easily embarrased.</li>
                              <li><span>Gaming</span><br> When I am not playing sports or doing homework i enjoy playing video games I like play NCAA25 and 2k with my friends  </li>
                          </ul>
@@ -79,25 +80,95 @@
         <h1 class="sub-title">My Services</h1>
         <div class="services-list">
         <div> 
+            <i class="fa-solid fa-soap"></i>
            <h2>Power Washing</h2>
            <p> Me and my friends offer many power washing services such as washing garbage cans, cleaning driveways, and many more! </p>
-           <a href="#"> learn more</a>
+           <a href="#"> L earn more</a>
         </div><div> 
-            <h2>Personal training for younger kids</h2>
-            <p> I apply what I have learned from my coaches over the years </p>
-            <a href="#"> learn more</a>
+            <i class="fa-solid fa-person"></i>
+            <h2>Personal training</h2>
+            <p> I apply what I have learned from my coaches over the years. And teaching younger kids to get better at basketball and football </p>
+            <a href="#"> Learn more</a>
          </div><div> 
+            <i class="fa-solid fa-tree"></i>
             <h2>Yard work</h2>
             <p> Me and my friends offer many power washing services such as washing garbage cans, cleaning driveways, and many more! </p>
-            <a href="#"> learn more</a>
+            <a href="#"> Learn more</a>
          </div><div> 
-            <h2> Building wha</h2>
-            <p> Me and my friends offer many power washing services such as washing garbage cans, cleaning driveways, and many more! </p>
-            <a href="#"> learn more</a>
+            <i class="fa-solid fa-couch"></i>
+            <h2> Furniture Assembly</h2>
+            <p> I also offer a service where I put furniture together  </p>
+            <a href="#"> Learn more</a>
          </div>
         </div>
     </div>
  </div>
+      <!---------------portfolio------------------->
+      <div id="Portfolio">
+        <div class="container">
+           <h1 class= "sub-title" > My Sports</h1>
+
+            <div class="My-Sports">
+                <img src="images/lock.jpg">
+                <div class="layer">
+                    <h3> Basketball</h3>
+                    <p> Salesian vs St. Mary's basketball game</p>
+                    <i class="fa-regular fa-basketball"></i>
+                </div>
+            </div>
+                
+            <div class="My-Sports">
+                 <img src="images/img_1945_720.jpg">
+                 <div class="layer">
+                    <h3> Football</h3>
+                    <p> Scoring a touchdown vs St Patrick St Vincent</p>
+                    <i class="fa-solid fa-football"></i>
+                 </div>
+            </div>
+                
+            <div class="My-Sports">
+                <img src="images/imagetrack.jpg">
+                <div class="layer">
+                    <h3> Track</h3>
+                    <p> Winning my 100m race</p>
+                    <i class="fa-solid fa-person-running"></i>
+                </div>
+            </div>
+             <a href="#" class="btn"> See more</a>
+           </div>
+        </div>
+      </div>
+      <!---------------contact--------->
+
+<div id="contact">
+  <div class="container">
+    <div class="row">
+        <div class="contact-left">
+        <h1 class="sub-title">Contact  Me</h1>
+
+               <p> <i class="fa-solid fa-paper-plane"></i>Tylersadler714@gmail.com</p>
+               <p> <i class="fa-solid fa-phone"></i>510-691-4065</p>
+               <div class="social-icons">
+              <a href=""><i class="fa-brands fa-instagram"></i></a>
+               </div>
+              <a href="" class="btn btn2">Download CV</a>
+               </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                   <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email"required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2"> Submit</button>
+                </form>
+            <span id="msg"></span>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright Made by Tyler Sadler with the hidden genius project </p>
+    </div>
+</div>
 
  <!-------- SCRIPT SECTION ---------->
 <script>
@@ -128,6 +199,24 @@
         this will make the tab contents appear for the selected section*/
         document.getElementById(tabName).classList.add("active-tab");
     }
+</script>
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyjESb7cmOU7lUuXwXMFXHkWUID1X0YQbwlMCF8aHLFXsX_3NQihOjOP0BB1Yva8B76dw/exec'
+  const form = document.forms['submit-to-google-sheet']
+   const msg= document.getElementById("msg")
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message sent succesfully"
+        setTimeout(function(){
+        msg.innerHTML = ""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
 </script>
 </body>
 
